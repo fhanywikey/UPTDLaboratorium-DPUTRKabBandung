@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Services UPTD Laboratorium</title>
+    <link rel="stylesheet" href="">
+    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+  <section class="bg-gray-100 py-8 px-4">
+    <div class="mb-4">
+      <a href="index.html#alat">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">Back Home</button>
+      </a>
+    </div>
+    <div class="text-center mb-6">
+      <img id="foto_alat" src="" alt="Alat" class="w-48 h-48 object-cover mx-auto rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold mt-4"><span id="nama_alat">Nama Alat</span></h1>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Info Detail -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <p class="text-lg"><strong>Merk:</strong> <span id="merk"></span></p>
+        <p class="text-lg"><strong>Bahan:</strong> <span id="bahan"></span></p>
+        <p class="text-lg"><strong>Kondisi:</strong> <span id="kondisi"></span></p>
+        <p class="text-lg"><strong>Tahun Pembuatan:</strong> <span id="tahun_pembuatan"></span></p>
+        <p class="text-lg"><strong>Fungsi:</strong> <span id="fungsi"></span></p>
+      </div>
+      <!-- Deskripsi Alat -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl font-semibold mb-4">Deskripsi Alat</h1>
+        <p class="text-gray-700"><span id="deskripsi">Deskripsi alat akan muncul di sini.</span></p>
+      </div>
+    </div>
+  </section>
+  
+
+    <script>
+      // Objek data
+    const dataAlat = {
+      1: { 
+        nama_alat: "CENTRIFUGE EXTRACTOR ELEKTRONIK", 
+        merk: "MBT", 
+        bahan: "Besi", 
+        kondisi: "Baik", 
+        tahun_pembuatan: "2000",
+        fungsi: "Alat Uji Pemisah Bitumen/Kadar Aspal",
+        foto_alat: "img/centrifuge.jpg",
+        deskripsi: "Centrifuge Extractor Elektronik adalah alat laboratorium yang digunakan untuk memisahkan kandungan aspal dari campuran aspal panas (Hot Mix Asphalt) secara akurat dan cepat. Alat ini bekerja menggunakan gaya sentrifugal, di mana sampel campuran aspal ditempatkan dalam mangkuk pemisah, kemudian diputar dengan kecepatan tinggi. Selama proses ini, pelarut kimia ditambahkan untuk melarutkan aspal, sehingga komponen aspal dapat terpisah dari agregat. Alat ini dilengkapi dengan kontrol elektronik untuk mengatur kecepatan dan waktu pemutaran, memberikan hasil yang lebih presisi dibandingkan metode manual. Centrifuge Extractor Elektronik sering digunakan dalam pengujian kualitas aspal untuk memastikan komposisi campuran sesuai dengan standar."
+      },
+      2: { 
+        nama_alat: "COMPRESSION MACHINE TEST", 
+        merk: "MBT", 
+        bahan: "Besi", 
+        kondisi: "Baik", 
+        tahun_pembuatan: "2014",
+        fungsi: "Alat Tekan Beton",
+        foto_alat: "img/compression.jpg",
+        deskripsi: "Compression Machine adalah alat yang digunakan untuk mengukur kekuatan tekan material, seperti beton, bata, atau balok, dengan cara memberikan tekanan hingga material tersebut hancur. Alat ini bekerja dengan memberikan beban secara bertahap pada sampel material hingga mencapai titik patah atau retak, sehingga kekuatan tekan material tersebut dapat diukur dengan akurat. Pengujian ini penting dalam memastikan kualitas material konstruksi, terutama untuk menentukan apakah material tersebut memenuhi standar kekuatan yang diperlukan untuk mendukung beban pada struktur bangunan atau infrastruktur lainnya."
+      },
+      3: {
+       nama_alat: "CONCRETE TEST HAMMER", 
+       merk: "Mates", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2015",
+       fungsi: "Alat Uji Kekuatan Beton",
+       foto_alat: "img/concrete.jpg",
+       deskripsi: "Concrete Test Hammer, juga dikenal sebagai Schmidt Hammer, adalah alat yang digunakan untuk mengukur kekerasan dan kekuatan permukaan beton secara non-destruktif. Alat ini bekerja dengan prinsip pemantulan; ketika ujung hammer ditekan pada permukaan beton, alat akan memantulkan palu kecil di dalamnya. Besarnya pemantulan ini diukur dan digunakan untuk memperkirakan kuat tekan beton. Pengujian ini penting untuk mengevaluasi kualitas beton dalam konstruksi tanpa harus merusak struktur yang diuji. Concrete Test Hammer sering digunakan di lapangan untuk pengujian cepat dan efisien pada berbagai elemen beton."
+      },
+      4: {
+       nama_alat: "CORE DRILLING UNVERSAL", 
+       merk: "MBT", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2017",
+       fungsi: "Melakukan pengeboran pada beton",
+       foto_alat: "img/cordrill.jpg",
+       deskripsi: "Core Drilling Universal adalah alat yang digunakan dalam konstruksi dan geoteknik untuk mengambil sampel inti dari material keras seperti beton, batu, dan tanah. Alat ini menggunakan bor berbentuk silinder yang mampu mengebor material dengan presisi tinggi, menghasilkan sampel berbentuk silinder yang bisa digunakan untuk analisis lebih lanjut. Core drilling biasanya diterapkan untuk menguji kekuatan dan kepadatan material dalam proyek pembangunan, guna memastikan kualitas dan keamanan struktur. Alat ini serbaguna dan dapat digunakan pada berbagai permukaan, sehingga disebut universal."
+      },
+      5: {
+       nama_alat: "ELECTRIC SIEVE SHAKER", 
+       merk: "MBT", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2021",
+       fungsi: "Saringan Material",
+       foto_alat: "img/shaker.jpg",
+       deskripsi: "Electric Sieve Shaker adalah alat laboratorium yang digunakan untuk memisahkan partikel bahan berdasarkan ukuran dengan getaran listrik. Alat ini terdiri dari serangkaian saringan (sieves) dengan ukuran mesh yang berbeda-beda, di mana material yang lebih kecil melewati saringan dan partikel yang lebih besar tertahan di atas. Dengan motor listrik yang menghasilkan getaran, alat ini mempercepat proses pemisahan dan lebih efisien dibandingkan metode manual. Electric Sieve Shaker sering digunakan untuk analisis ukuran partikel pada material seperti tanah, pasir, dan agregat di industri konstruksi dan pengujian material."
+      },
+      6: {
+       nama_alat: "MARSHALL TEST", 
+       merk: "Jatex", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2014",
+       fungsi: "Alat Uji Ketahanan/Kelelehan Aspal",
+       foto_alat: "img/marshall.jpg",
+       deskripsi: "Marshall Test adalah pengujian laboratorium yang digunakan untuk mengevaluasi sifat campuran aspal panas (Hot Mix Asphalt) dalam pekerjaan perkerasan jalan. Alat Marshall Test terdiri dari mesin uji yang mengukur kekuatan dan stabilitas campuran aspal dengan memberikan beban tekanan pada sampel silinder aspal sampai mengalami deformasi atau kegagalan. Pengujian ini mengukur dua parameter utama, yaitu stabilitas Marshall (daya tahan campuran terhadap deformasi) dan flow (jumlah deformasi plastis sebelum kegagalan). Marshall Test digunakan untuk memastikan campuran aspal memiliki kualitas yang cukup kuat untuk menahan beban lalu lintas dan kondisi lingkungan di jalan raya."
+      },
+      7: {
+       nama_alat: "DUTCH CONE PENETROMETER", 
+       merk: "MBT", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2000",
+       fungsi: "Mengukur resistansi titik saat kerucut ditancapkan ke dalam tanah",
+       foto_alat: "img/sondirManual.jpg",
+       deskripsi: "Dutch Cone Penetrometer adalah alat yang digunakan dalam geoteknik untuk mengukur kekuatan tanah dan menentukan karakteristik lapisan tanah. Alat ini memiliki ujung berbentuk kerucut (cone) yang ditekan secara vertikal ke dalam tanah, dan memberikan data tentang daya dukung serta ketahanan tanah terhadap penetrasi. Pengukuran dilakukan dengan mencatat gaya yang diperlukan untuk menekan cone ke dalam tanah hingga kedalaman tertentu. Data ini kemudian digunakan untuk menilai kondisi tanah dalam proyek-proyek konstruksi, seperti fondasi bangunan, jalan, atau jembatan, guna memastikan keamanan dan stabilitas struktur."
+      },
+      8: {
+       nama_alat: "SPEEDY MUISTERE TESTER", 
+       merk: "MBT", 
+       bahan: "Besi", 
+       kondisi: "Baik", 
+       tahun_pembuatan: "2018",
+       fungsi: "Alat Uji Kadar Air Pada Tanah",
+       foto_alat: "img/speedy.jpg",
+       deskripsi: "Speedy Moisture Tester adalah alat yang digunakan untuk mengukur kadar air dalam berbagai material seperti tanah, pasir, beton, atau agregat dengan cepat dan efisien. Alat ini bekerja berdasarkan reaksi kimia antara kalsium karbida dan air yang terdapat dalam sampel, menghasilkan gas asetilena. Jumlah gas yang dihasilkan diukur oleh alat dalam bentuk tekanan, dan nilai ini dikonversi menjadi kadar air. Speedy Moisture Tester sering digunakan di lapangan karena portabilitasnya dan kemampuannya memberikan hasil yang cepat, sehingga sangat berguna dalam pekerjaan konstruksi dan pengujian material untuk menentukan apakah material tersebut sudah sesuai untuk digunakan."
+      }
+    /* nama_alat: "", 
+       merk: "", 
+       bahan: "", 
+       kondisi: "", 
+       tahun_pembuatan: "",
+       fungsi: "",
+       foto_alat: "",
+       deskripsi: "" */
+    };
+
+    // Ambil parameter id dari URL dan ubah ke angka
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'), 10);
+
+    // Jika id ditemukan, tampilkan data di halaman
+    if (dataAlat[id]) {
+        document.getElementById('nama_alat').textContent = dataAlat[id].nama_alat;
+        document.getElementById('deskripsi').textContent = dataAlat[id].deskripsi;
+        document.getElementById('kondisi').textContent = dataAlat[id].kondisi;
+        document.getElementById('foto_alat').src = dataAlat[id].foto_alat;
+        document.getElementById('merk').textContent = dataAlat[id].merk;
+        document.getElementById('bahan').textContent = dataAlat[id].bahan;
+        document.getElementById('fungsi').textContent = dataAlat[id].fungsi;
+        document.getElementById('tahun_pembuatan').textContent = dataAlat[id].tahun_pembuatan;
+    } else {
+      document.querySelector('.profile-section').innerHTML = "<p>Data tidak ditemukan.</p>";
+    }
+    </script>
+</body>
+</html>

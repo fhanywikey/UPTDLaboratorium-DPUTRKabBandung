@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    
+  <section class="profile-section py-8 bg-gray-50">
+  <div class="text-center mb-6">
+    <a href="index.html#struktur">
+      <button class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 transition duration-200 shadow-lg">
+        Back Home
+      </button>
+    </a>
+  </div>
+  <div class="container mx-auto px-4 lg:px-8">
+    <!-- Profile Card -->
+    <div class="profile-card flex flex-col md:flex-row justify-center items-center border shadow-lg p-6 font-serif rounded-2xl bg-white max-w-4xl mx-auto">
+      <!-- Foto -->
+      <div class="foto-wajah w-[8rem] md:w-[12rem] m-4">
+        <img id="foto" src="" alt="Foto" class=" shadow-lg w-full">
+      </div>
+      <!-- Profile Details -->
+      <div class="profile-details mt-4 md:mt-0 md:ml-8 text-center md:text-left">
+        <p class="text-xl md:text-2xl my-2 bg-gray-100 rounded-lg p-4 shadow-sm">
+          Nama: <span id="nama"></span></p>
+        <p class="text-xl md:text-2xl my-2 bg-gray-100 rounded-lg p-4 shadow-sm">
+          Klasifikasi: <span id="klasifikasi"></span></p>
+        <p class="text-xl md:text-2xl my-2 bg-gray-100 rounded-lg p-4 shadow-sm">
+          Jabatan: <span id="jabatan"></span></p>
+      </div>
+    </div>
+    <!-- Sertifikat Image -->
+    <div class="img-sertifikat flex justify-center mt-8">
+      <img id="foto_sertifikat" src="" alt="Sertifikat" class="rounded-lg shadow-md w-full max-w-[90%] lg:max-w-[60%]">
+    </div>
+  </div>
+</section>
+
+<script>
+    // Objek data
+    const dataStruktur = {
+      1: { 
+        nama: "GIA YOGISTIRA, S.T", 
+        klasifikasi: "Sipil", 
+        jabatan: "Kepala UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/pagia.png", 
+        fotoSertifikat: "uploads/serti_pagia.jpg" 
+      },
+      2: { 
+        nama: "ETI SUMIATI, S.Sos", 
+        klasifikasi: "Sipil", 
+        jabatan: "KASUBAG Tata Usaha UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/bueti.png", 
+        fotoSertifikat: "uploads/serti_bueti.jpg" 
+      },
+      3: { 
+        nama: "TETEN ROHENDI, S.T", 
+        klasifikasi: "Sipil", 
+        jabatan: "Penguji Bahan dan Bangunan UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/pateten.png", 
+        fotoSertifikat: "uploads/serti_pateten.jpg" 
+      },
+      4: { 
+        nama: "AJANG PENDI", 
+        klasifikasi: "Sipil", 
+        jabatan: "Pengelola Data UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/paajang.png", 
+        fotoSertifikat: "uploads/serti_paajang.jpg" 
+      },
+      5: { 
+        nama: "GUMILAR RISNAYA, A.Md", 
+        klasifikasi: "Sipil", 
+        jabatan: "Penguji Bahan dan Bangunan UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/pagum.png", 
+        fotoSertifikat: "uploads/serti_pagum.jpg" 
+      },
+      6: { 
+        nama: "DEDE SUHARA", 
+        klasifikasi: "Sipil", 
+        jabatan: "Pengadministrasi Umum UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/padede.png", 
+        fotoSertifikat: "uploads/serti_padede.jpg" 
+      },
+      7: { 
+        nama: "DEDEN DARMA SETIAWAN", 
+        klasifikasi: "Sipil", 
+        jabatan: "Teknisi UPTD Laboratorium Dinas PUTR Kab Bandung", 
+        foto: "uploads/padeden.png", 
+        fotoSertifikat: "uploads/serti_padeden.jpg" 
+      },
+    };
+
+    // Ambil parameter id dari URL dan ubah ke angka
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'), 10);
+
+    // Jika id ditemukan, tampilkan data di halaman
+    if (dataStruktur[id]) {
+      document.getElementById('nama').textContent = dataStruktur[id].nama;
+      document.getElementById('klasifikasi').textContent = dataStruktur[id].klasifikasi;
+      document.getElementById('jabatan').textContent = dataStruktur[id].jabatan;
+      document.getElementById('foto').src = dataStruktur[id].foto;
+      document.getElementById('foto_sertifikat').src = dataStruktur[id].fotoSertifikat;
+    } else {
+      document.querySelector('.profile-section').innerHTML = "<p>Data tidak ditemukan.</p>";
+    }
+  </script>
+
+
+</body>
+</html>
