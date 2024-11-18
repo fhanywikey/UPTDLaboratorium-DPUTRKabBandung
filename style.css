@@ -17,39 +17,6 @@ html {
       background-attachment: fixed;
   }
   
-  .header {
-    width: 100%;
-    height: 100vh;
-  }
-  
-  .header-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .header-text {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    color: rgb(0, 153, 255);
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); 
-    font-family: serif;
-    padding-bottom: 60px;
-  }
-  
-  .header-title {
-    font-size: 6rem;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .header-title span {
-    color: white;
-  }
-  
   .card-ruang {
     display: flex;
     justify-content: center;
